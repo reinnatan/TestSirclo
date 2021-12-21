@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include "header.html" %}
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+    </script>
+
+</head>
+<body>
+     {% if error %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{error}}</strong>
+        </div>
+    {% endif %}
+
+    <div class="container">
+        <div class="row">
+            <form method="POST" action="/create-bb">
+                <div class="col">Min</div>
+                <div class="w-100"></div>
+                <div class="col"><input type="text" name="min"/></div>
+
+                <div class="col">Max</div>
+                <div class="w-100"></div>
+                <div class="col"><input type="text" name="max"/></div>
+
+                <div class="col">Tanggal</div>
+                <div class="w-100"></div>
+                <div class="col"><input type="text" readonly name="tanggal" id="datepicker"/></div>
+
+                <input type="submit" value="Save"/>
+            </form>
+        </div>
+        <br/><a href="/" class="btn btn-primary">Index</a><br/><br/>
+    </div>
+</body>
+</html>

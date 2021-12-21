@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include "header.html" %}
+</head>
+<body>
+    <br/><a href="/view-create" class="btn btn-primary">Create Berat Badan</a><br/><br/>
+
+    <table class="table">
+        <thead>
+            <th scope="col">Tanggal</th>
+            <th scope="col">Min</th>
+            <th scope="col">Max</th>
+            <th scope="col">Perbedaan</th>
+            <th scope="col">Action</th>
+        </thead>
+        <tbody>
+
+        {% for berat_badan in list_berat_badan %}
+        <tr>
+            <td><a href="/detail/{{berat_badan.tanggal}}" class="btn btn-info">{{berat_badan.tanggal}}</a></td>
+            <td>{{berat_badan.min}}</td>
+            <td>{{berat_badan.max}}</td>
+            <td>{{berat_badan.perbedaan}}</td>
+            <td><a href="/update/{{berat_badan.id}}" class="btn btn-success"/>Update</a> | <a href="/delete/{{berat_badan.id}}" class="btn btn-danger"/>Delete</a></td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><b>Rata-Rata</b></td>
+                <td><b>{{avg_diff['avg_min']}}</b></td>
+                <td><b>{{avg_diff['avg_max']}}</b></td>
+                <td><b>{{avg_diff['avg_diff']}}</b></td>
+                <td rowspan="4"></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

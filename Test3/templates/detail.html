@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include "header.html" %}
+</head>
+<body>
+    <br/><h4>Detail Berat Badan</h4><br/>
+
+    <table class="table" border="1">
+        <tr>
+            <td><strong>Tanggal</strong></td><td><strong>{{berat_badan_selected.tanggal}}</strong></td>
+        </tr>
+        <tr>
+            <td>Max</td><td>{{berat_badan_selected.max}}</td>
+        </tr>
+        <tr>
+            <td>Min</td><td>{{berat_badan_selected.min}}</td>
+        </tr>
+        <tr>
+            <td>Perbedaan</td><td>{{berat_badan_selected.perbedaan}}</td>
+        </tr>
+    </table>
+
+    <br/><a href="/" class="btn btn-primary">Index</a><br/><br/>
+</body>
+</html>
